@@ -427,7 +427,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/FPS/Art/Materials/Level
   m_LastFoldersGridSize: 90
-  m_LastProjectPath: C:\Temp\478b2bd864180464c875c29a1cc9e47e
+  m_LastProjectPath: C:\Users\GamingVM\Desktop\Dev\Unity Projects\Gravity-Portal
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
