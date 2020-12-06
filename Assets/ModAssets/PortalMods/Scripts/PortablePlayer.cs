@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
-public class PortalableObject : MonoBehaviour
+public class PortablePlayer : MonoBehaviour
 {
     private GameObject cloneObject;
 
     private int inPortalCount = 0;
-    
+
     private Portal inPortal;
     private Portal outPortal;
-
-    private Rigidbody rigidbody;
-    private new CharacterController characterController;
     protected new Collider collider;
 
+    private CharacterController characterController;
     private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+    // Start is called before the first frame update
+
 
     protected virtual void Awake()
     {
@@ -32,19 +31,16 @@ public class PortalableObject : MonoBehaviour
         meshRenderer.materials = GetComponent<MeshRenderer>().materials;
         cloneObject.transform.localScale = transform.localScale;
 
-        rigidbody = GetComponent<Rigidbody>();
         characterController = GetComponent<CharacterController>();
-        collider = GetComponent<Collider>();
     }
-
     private void LateUpdate()
     {
-        if(inPortal == null || outPortal == null)
+        if (inPortal == null || outPortal == null)
         {
             return;
         }
 
-        if(cloneObject.activeSelf && inPortal.IsPlaced() && outPortal.IsPlaced())
+        if (cloneObject.activeSelf && inPortal.IsPlaced() && outPortal.IsPlaced())
         {
             var inTransform = inPortal.transform;
             var outTransform = outPortal.transform;
@@ -64,7 +60,6 @@ public class PortalableObject : MonoBehaviour
             cloneObject.transform.position = new Vector3(-1000.0f, 1000.0f, -1000.0f);
         }
     }
-
     public void SetIsInPortal(Portal inPortal, Portal outPortal, Collider wallCollider)
     {
         this.inPortal = inPortal;
@@ -93,21 +88,21 @@ public class PortalableObject : MonoBehaviour
         transform.rotation = outTransform.rotation * relativeRot;
 
         // Update velocity of rigidbody.
-        Vector3 relativeVel = inTransform.InverseTransformDirection(rigidbody.velocity);
+        /*Vector3 relativeVel = inTransform.InverseTransformDirection(rigidbody.velocity);
         relativeVel = halfTurn * relativeVel;
-        rigidbody.velocity = outTransform.TransformDirection(relativeVel);
+        rigidbody.velocity = outTransform.TransformDirection(relativeVel);*/
 
         //Update velocity of character controller
-        //Vector3 relativeVelCC = inTransform.InverseTransformDirection(characterController.velocity);
-        //relativeVelCC = halfTurn * relativeVelCC;
-        //characterController.velocity = outTransform.TransformDirection(relativeVelCC);
+        Vector3 relativeVel = inTransform.InverseTransformDirection(characterController.velocity);
+        relativeVel = halfTurn * relativeVel;
+        //characterController.velocity = outTransform.TransformDirection(relativeVel);
+        characterController.Move(outTransform.TransformDirection(relativeVel));
 
         // Swap portal references.
         var tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;
     }
-
     public void ExitPortal(Collider wallCollider)
     {
         Physics.IgnoreCollision(collider, wallCollider, false);
