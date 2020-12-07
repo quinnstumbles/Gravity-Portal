@@ -107,6 +107,9 @@ GameObject:
   - component: {fileID: 8323776800172828795}
   - component: {fileID: 8745372878802205896}
   - component: {fileID: 8090847488450120274}
+  - component: {fileID: 6594892304971892071}
+  - component: {fileID: -540768758853984553}
+  - component: {fileID: -3676020999636292967}
   m_Layer: 10
   m_Name: Portal
   m_TagString: Untagged
@@ -137,12 +140,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2225486910712267859}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ad90ba0b1477764da373f5ec01a8cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: Shotgun
+  weaponName: PortalGun
   weaponIcon: {fileID: 21300000, guid: 8cbb10368086f014a8b7fc8932e7f436, type: 3}
   crosshairDataDefault:
     crosshairSprite: {fileID: 21300000, guid: 2962952d6e5ae7342a298d45a3945069, type: 3}
@@ -154,7 +157,7 @@ MonoBehaviour:
     crosshairColor: {r: 0.20392156, g: 0.5790918, b: 1, a: 1}
   weaponRoot: {fileID: 1505447205160222267}
   weaponMuzzle: {fileID: 8334323006752503713}
-  shootType: 0
+  shootType: 1
   projectilePrefab: {fileID: 528546716365072993, guid: f05c7e6fbbfbe824388456bb4abff9d4,
     type: 3}
   delayBetweenShots: 0.2
@@ -163,9 +166,9 @@ MonoBehaviour:
   recoilForce: 1
   aimZoomRatio: 0.7
   aimOffset: {x: 0, y: 0.13, z: 0}
-  ammoReloadRate: 1.1
-  ammoReloadDelay: 1
-  maxAmmo: 2
+  ammoReloadRate: 0
+  ammoReloadDelay: 0
+  maxAmmo: 0
   automaticReleaseOnCharged: 0
   maxChargeDuration: 1
   ammoUsedOnStartCharge: 0
@@ -297,6 +300,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6594892304971892071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225486910712267859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609b91f43b8682c41bc1d55f208fc5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-540768758853984553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225486910712267859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f8ba086347dad4cb1bbbcf835540b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portals: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 5121
+  crosshair: {fileID: 0}
+--- !u!54 &-3676020999636292967
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225486910712267859}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2867801751256125023
 GameObject:
   m_ObjectHideFlags: 0

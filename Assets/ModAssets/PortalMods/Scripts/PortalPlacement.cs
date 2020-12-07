@@ -16,10 +16,15 @@ public class PortalPlacement : MonoBehaviour
 
     private CameraMove cameraMove;
 
-
+    private void Start()
+    {
+        portals = FindObjectOfType<PortalPair>();
+        crosshair = FindObjectOfType<Crosshair>();
+    }
     private void Awake()
     {
         cameraMove = GetComponent<CameraMove>();
+        //portals = GameObject.FindGameObjectsWithTag("Portal");
     }
 
     private void Update()

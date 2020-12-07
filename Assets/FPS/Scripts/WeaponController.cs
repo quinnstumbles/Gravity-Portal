@@ -235,6 +235,8 @@ public class WeaponController : MonoBehaviour
     public void ShowWeapon(bool show)
     {
         weaponRoot.SetActive(show);
+        weaponRoot.transform.parent.gameObject.SetActive(show);
+        Debug.Log("Show Weapon is currently: " + show);
 
         if (show && changeWeaponSFX)
         {

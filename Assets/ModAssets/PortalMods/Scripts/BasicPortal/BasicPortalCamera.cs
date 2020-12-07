@@ -74,7 +74,8 @@ public class BasicPortalCamera : MonoBehaviour
 
         // Rotate the camera to look through the other portal.
         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
-        relativeRot = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeRot;
+        relativeRot = Quaternion.Euler(0.0f, -180.0f, 0.0f) * relativeRot;
+        //portalCamera.transform.rotation = Quaternion.LookRotation(-outTransform.forward, Vector3.up) * relativeRot;
         portalCamera.transform.rotation = outTransform.rotation * relativeRot;
         
         // Set the camera's oblique view frustum.

@@ -1167,6 +1167,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2164432502208030146, guid: edde723163b681847a5271da91d70ea7,
+        type: 3}
+      propertyPath: m_Name
+      value: Crosshair_Portal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edde723163b681847a5271da91d70ea7, type: 3}
 --- !u!224 &8002630417525497880 stripped
