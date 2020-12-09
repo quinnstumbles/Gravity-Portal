@@ -78,14 +78,14 @@ public class PortablePlayer : MonoBehaviour
         var outTransform = outPortal.transform;
 
         // Update position of object.
-        Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
+        /*Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
         relativePos = halfTurn * relativePos;
-        transform.position = outTransform.TransformPoint(relativePos);
+        transform.position = outTransform.TransformPoint(relativePos);*/
 
         // Update rotation of object.
-        Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
+        /*Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
         relativeRot = halfTurn * relativeRot;
-        transform.rotation = outTransform.rotation * relativeRot;
+        transform.rotation = outTransform.rotation * relativeRot;*/
 
         // Update velocity of rigidbody.
         /*Vector3 relativeVel = inTransform.InverseTransformDirection(rigidbody.velocity);
@@ -93,10 +93,10 @@ public class PortablePlayer : MonoBehaviour
         rigidbody.velocity = outTransform.TransformDirection(relativeVel);*/
 
         //Update velocity of character controller
-        Vector3 relativeVel = inTransform.InverseTransformDirection(characterController.velocity);
+        /*Vector3 relativeVel = inTransform.InverseTransformDirection(characterController.velocity);
         relativeVel = halfTurn * relativeVel;
         //characterController.velocity = outTransform.TransformDirection(relativeVel);
-        characterController.Move(outTransform.TransformDirection(relativeVel));
+        characterController.Move(outTransform.TransformDirection(relativeVel));*/
 
         // Swap portal references.
         var tmp = inPortal;

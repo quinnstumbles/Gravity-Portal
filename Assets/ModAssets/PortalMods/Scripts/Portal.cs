@@ -108,8 +108,9 @@ public class Portal : MonoBehaviour
     public void PlacePortal(Collider wallCollider, Vector3 pos, Quaternion rot)
     {
         this.wallCollider = wallCollider;
-        transform.position = pos;
-        transform.rotation = rot;
+        transform.SetPositionAndRotation(pos, rot.normalized);
+        /*transform.position = pos;
+        transform.rotation = rot;*/
         transform.position -= transform.forward * 0.001f;
 
         FixOverhangs();

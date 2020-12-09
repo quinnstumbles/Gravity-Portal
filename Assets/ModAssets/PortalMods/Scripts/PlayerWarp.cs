@@ -16,6 +16,6 @@ public class PlayerWarp : PortablePlayer
     public override void Warp()
     {
         base.Warp();
-        cameraMove.ResetTargetRotation();
+        //cameraMove.ResetTargetRotation();
     }
 }

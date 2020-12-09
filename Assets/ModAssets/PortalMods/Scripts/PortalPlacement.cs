@@ -74,7 +74,7 @@ public class PortalPlacement : MonoBehaviour
                 return;
             }
 
-            var cameraRotation = cameraMove.TargetRotation;
+            /*var cameraRotation = cameraMove.TargetRotation;
 
             var portalRight = cameraRotation * Vector3.right;
             
@@ -90,7 +90,8 @@ public class PortalPlacement : MonoBehaviour
             var portalForward = -hit.normal;
             var portalUp = -Vector3.Cross(portalRight, portalForward);
 
-            var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
+            var portalRotation = Quaternion.LookRotation(portalForward, portalUp);*/
+            var portalRotation = Quaternion.FromToRotation(Vector3.forward, -hit.normal);
             
             portals.Portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
 

@@ -20,7 +20,7 @@ public class CameraMove : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
 
-        TargetRotation = transform.rotation;
+       // TargetRotation = transform.rotation;
     }
 
     private void Update()
@@ -53,8 +53,8 @@ public class CameraMove : MonoBehaviour
         rigidbody.velocity = newVelocity;
     }
 
-    public void ResetTargetRotation()
+    /*public void ResetTargetRotation()
     {
         TargetRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
-    }
+    }*/
 }
